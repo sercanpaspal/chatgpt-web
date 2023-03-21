@@ -8,6 +8,7 @@ import Message from '../Message';
 
 function Messages() {
   const messages = useSelector(selectors.getChatMessages);
+
   return messages.length > 0 && (
     <Card>
       <CardBody>

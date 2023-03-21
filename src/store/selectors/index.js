@@ -7,7 +7,7 @@ const getActiveScreen = createSelector(getApp, (app) => app.activeScreen);
 
 const getChat = (state) => state.chat;
 const getChatMessages = createSelector(getChat, (chat) => chat.messages);
-const getChatError = createSelector(getChat, (chat) => chat.error);
+const getChatErrorMessage = createSelector(getChat, (chat) => chat.errorMessage);
 const getChatIsLoading = createSelector(getChat, (chat) => chat.isLoading);
 const getIsConversationEnabled = createSelector(getChat, (chat) => chat.isConversationEnabled);
 
@@ -15,7 +15,7 @@ export default {
   getApiKey,
   getActiveScreen,
   getChatMessages,
-  getChatError,
+  getChatErrorMessage,
   getChatIsLoading,
   getIsConversationEnabled,
 };

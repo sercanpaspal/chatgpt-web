@@ -13,7 +13,7 @@ function ApiKeyForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(setApiKey(e.target.apiKey.value));
+    dispatch(setApiKey(e.target.apiKey.value.trim()));
   };
 
   return (
@@ -23,6 +23,7 @@ function ApiKeyForm() {
           pr="4.5rem"
           type={show ? 'text' : 'password'}
           placeholder="Api key"
+          name="apiKey"
           defaultValue={apiKey}
         />
         <InputRightElement width="4.5rem">

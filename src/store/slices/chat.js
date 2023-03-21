@@ -30,7 +30,7 @@ const chatSlice = createSlice({
   name: 'chat',
   initialState,
   reducers: {
-    addMessage: (state, { payload }) => ({ ...state, messages: [...(state.isConversationEnabled ? state.messages : []), { role: 'user', content: payload }] }),
+    addMessage: (state, { payload }) => ({ ...state, errorMessage: '', messages: [...(state.isConversationEnabled ? state.messages : []), { role: 'user', content: payload }] }),
     setIsConversationEnabled: (state, { payload }) => ({ ...state, isConversationEnabled: payload }),
   },
   extraReducers: {
