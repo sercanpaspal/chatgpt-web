@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Textarea, Button } from '@chakra-ui/react';
 import { useDispatch } from 'react-redux';
 import { addMessage } from '../../store/slices/chat';
 
@@ -15,15 +16,13 @@ function ChatForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <textarea
+      <Textarea
         name="message"
-        cols="30"
-        rows="10"
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         onKeyDown={(e) => e.which === 13 && !e.shiftKey && handleSubmit(e)}
       />
-      <button type="submit">send</button>
+      <Button colorScheme="teal" type="submit">send</Button>
     </form>
   );
 }
