@@ -9,7 +9,7 @@ import Messages from '../../components/Messages/index';
 function Home() {
   const dispatch = useDispatch();
 
-  const handleEditApiKey = () => dispatch(setActiveScreen(SCREENS.API_KEY));
+  const handleEditApiKey = () => dispatch(setActiveScreen(SCREENS.SETTINGS));
 
   return (
     <div>

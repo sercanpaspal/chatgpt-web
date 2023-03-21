@@ -5,7 +5,7 @@ const apiKey = localStorage.getItem('apiKey') || '';
 
 const initialState = {
   apiKey,
-  activeScreen: apiKey ? SCREENS.HOME : SCREENS.API_KEY,
+  activeScreen: apiKey ? SCREENS.HOME : SCREENS.SETTINGS,
 };
 
 const appSlice = createSlice({

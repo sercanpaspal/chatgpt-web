@@ -5,7 +5,7 @@ import { SCREENS } from '../constants';
 
 const screens = {
   [SCREENS.HOME]: lazy(() => import('./Home')),
-  [SCREENS.API_KEY]: lazy(() => import('./ApiKey')),
+  [SCREENS.SETTINGS]: lazy(() => import('./Settings')),
 };
 
 function Screens() {

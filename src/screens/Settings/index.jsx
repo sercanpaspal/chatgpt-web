@@ -6,7 +6,7 @@ import selectors from '../../store/selectors';
 import { setActiveScreen } from '../../store/slices/app';
 import { SCREENS } from '../../constants';
 
-function ApiKey() {
+function Settings() {
   const dispatch = useDispatch();
   const apiKey = useSelector(selectors.getApiKey);
 
@@ -14,7 +14,7 @@ function ApiKey() {
 
   return (
     <div>
-      <Text fontSize="5xl">Api Key Edit</Text>
+      <Text fontSize="5xl">Settings</Text>
       <ApiKeyForm />
       {apiKey && (
         <Button type="button" onClick={handleBack}>Back Home</Button>
@@ -23,4 +23,4 @@ function ApiKey() {
   );
 }
 
-export default ApiKey;
+export default Settings;
