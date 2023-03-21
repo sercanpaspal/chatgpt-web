@@ -5,14 +5,21 @@ const initialState = {
   messages: [],
   isLoading: false,
   errorMessage: '',
+  isConversationEnabled: false,
 };
 
 export const fetchChat = createAsyncThunk(
   'chat/fetchChat',
   async (prompt, { rejectWithValue, getState }) => {
-    const { app: { apiKey } } = getState();
+    const { app: { apiKey }, chat: { messages: _messages } } = getState();
+
+    const messages = [
+      // { role: 'system', content: 'given role' },
+      ..._messages,
+    ];
+
     try {
-      return await fetchChatApi({ apiKey, prompt });
+      return await fetchChatApi({ apiKey, messages });
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -23,7 +30,8 @@ const chatSlice = createSlice({
   name: 'chat',
   initialState,
   reducers: {
-    addMessage: (state, { payload }) => ({ ...state, messages: [{ role: 'user', content: payload }] }),
+    addMessage: (state, { payload }) => ({ ...state, messages: [...(state.isConversationEnabled ? state.messages : []), { role: 'user', content: payload }] }),
+    setIsConversationEnabled: (state, { payload }) => ({ ...state, isConversationEnabled: payload }),
   },
   extraReducers: {
     [fetchChat.pending]: (state) => ({ ...state, isLoading: true }),
@@ -32,6 +40,6 @@ const chatSlice = createSlice({
   },
 });
 
-export const { addMessage } = chatSlice.actions;
+export const { addMessage, setIsConversationEnabled } = chatSlice.actions;
 
 export default chatSlice.reducer;

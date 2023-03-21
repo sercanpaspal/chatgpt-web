@@ -6,8 +6,8 @@ function* watchSetApiKey({ payload }) {
   yield localStorage.setItem('apiKey', payload);
 }
 
-function* watchChatMessage({ payload }) {
-  yield put(fetchChat(payload));
+function* watchChatMessage() {
+  yield put(fetchChat());
 }
 
 function* saga() {

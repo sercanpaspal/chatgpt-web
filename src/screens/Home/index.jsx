@@ -14,7 +14,7 @@ function Home() {
   return (
     <div>
       <Text fontSize="5xl">Home</Text>
-      <Button type="button" onClick={handleEditApiKey}>Edit Api Key</Button>
+      <Button type="button" onClick={handleEditApiKey}>Settings</Button>
       <ChatForm />
       <Messages />
     </div>

@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/prefer-default-export
-export const fetchChatApi = async ({ apiKey, prompt }) => {
+export const fetchChatApi = async ({ apiKey, messages }) => {
   const response = await fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
     headers: {
@@ -8,10 +8,7 @@ export const fetchChatApi = async ({ apiKey, prompt }) => {
     },
     body: JSON.stringify({
       model: 'gpt-3.5-turbo',
-      messages: [
-        // { role: 'system', content: 'replace "hav" every word in given text' },
-        { role: 'user', content: prompt },
-      ],
+      messages,
       max_tokens: 200,
     }),
   });
