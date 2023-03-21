@@ -27,8 +27,9 @@ function ChatForm() {
         value={message}
         onChange={(e) => setMessage(e.target.value)}
         onKeyDown={(e) => e.which === 13 && !e.shiftKey && handleSubmit(e)}
+        mb={4}
       />
-      <Stack direction="row">
+      <Stack direction="row" mb={4}>
         <FormControl display="flex" alignItems="center">
           <Switch
             id="is-conversation-enabled"

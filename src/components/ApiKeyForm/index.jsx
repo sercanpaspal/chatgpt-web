@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import {
-  Input, Button, InputGroup, InputRightElement,
+  Input, Button, InputGroup, InputRightElement, Stack,
 } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setApiKey } from '../../store/slices/app';
+import { setActiveScreen, setApiKey } from '../../store/slices/app';
 import selectors from '../../store/selectors';
+import { SCREENS } from '../../constants';
 
 function ApiKeyForm() {
   const [show, setShow] = useState(false);
@@ -14,6 +15,7 @@ function ApiKeyForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(setApiKey(e.target.apiKey.value.trim()));
+    dispatch(setActiveScreen(SCREENS.HOME));
   };
 
   return (
@@ -25,6 +27,7 @@ function ApiKeyForm() {
           placeholder="Api key"
           name="apiKey"
           defaultValue={apiKey}
+          mb={4}
         />
         <InputRightElement width="4.5rem">
           <Button h="1.75rem" size="sm" onClick={() => setShow(!show)}>
@@ -32,7 +35,9 @@ function ApiKeyForm() {
           </Button>
         </InputRightElement>
       </InputGroup>
-      <Button colorScheme="teal" type="submit">save</Button>
+      <Stack>
+        <Button colorScheme="teal" type="submit">save</Button>
+      </Stack>
     </form>
   );
 }

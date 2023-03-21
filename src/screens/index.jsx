@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { useSelector } from 'react-redux';
 import selectors from '../store/selectors';
 import { SCREENS } from '../constants';
+import Layout from '../components/Layout';
 
 const screens = {
   [SCREENS.HOME]: lazy(() => import('./Home')),
@@ -14,9 +15,11 @@ function Screens() {
   const Screen = screens[activeScreen];
 
   return (
-    <Suspense fallback={<div>loading screen..</div>}>
-      <Screen />
-    </Suspense>
+    <Layout>
+      <Suspense fallback={<div>loading screen..</div>}>
+        <Screen />
+      </Suspense>
+    </Layout>
   );
 }
 
