@@ -23,11 +23,11 @@ const chatSlice = createSlice({
   name: 'chat',
   initialState,
   reducers: {
-    addMessage: (state, { payload }) => ({ ...state, messages: [payload] }),
+    addMessage: (state, { payload }) => ({ ...state, messages: [{ role: 'user', content: payload }] }),
   },
   extraReducers: {
     [fetchChat.pending]: (state) => ({ ...state, isLoading: true }),
-    [fetchChat.fulfilled]: (state, { payload }) => ({ ...state, isLoading: false, messages: [...state.messages, payload] }),
+    [fetchChat.fulfilled]: (state, { payload }) => ({ ...state, isLoading: false, messages: [...state.messages, { role: 'assistant', content: payload }] }),
     [fetchChat.rejected]: (state, { payload }) => ({ ...state, isLoading: false, errorMessage: payload }),
   },
 });

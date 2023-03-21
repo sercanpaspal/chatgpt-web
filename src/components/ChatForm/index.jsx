@@ -10,6 +10,7 @@ function ChatForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (!message) return;
     dispatch(addMessage(message));
     setMessage('');
   };
