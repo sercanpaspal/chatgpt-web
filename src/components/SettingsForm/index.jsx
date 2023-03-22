@@ -7,7 +7,7 @@ import { setActiveScreen, setApiKey } from '../../store/slices/app';
 import selectors from '../../store/selectors';
 import { SCREENS } from '../../constants';
 
-function ApiKeyForm() {
+function SettingsForm() {
   const [show, setShow] = useState(false);
   const dispatch = useDispatch();
   const apiKey = useSelector(selectors.getApiKey);
@@ -42,4 +42,4 @@ function ApiKeyForm() {
   );
 }
 
-export default ApiKeyForm;
+export default SettingsForm;
