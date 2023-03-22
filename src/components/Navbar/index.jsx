@@ -12,30 +12,29 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
-import { useDispatch, useSelector } from 'react-redux';
-import { SCREENS } from '../../constants';
-import selectors from '../../store/selectors';
-import { setActiveScreen } from '../../store/slices/app';
+import { Link, useLocation } from 'react-router-dom';
 
 function NavLinks() {
-  const dispatch = useDispatch();
-  const apikey = useSelector(selectors.getApiKey);
+  const { pathname } = useLocation();
 
   const NAV_SCREENS = [
     {
       label: 'Home',
-      screen: SCREENS.HOME,
-      disabled: !apikey,
+      to: '/',
+    },
+    {
+      label: 'Prompts',
+      to: '/prompts',
     },
     {
       label: 'Settings',
-      screen: SCREENS.SETTINGS,
+      to: '/settings',
     },
   ];
 
-  return NAV_SCREENS.map(({ label, screen, disabled = false }) => (
+  return NAV_SCREENS.map(({ label, to, disabled = false }) => (
     <Box>
-      <Button variant="link" p={2} onClick={() => dispatch(setActiveScreen(screen))} isDisabled={disabled}>
+      <Button colorScheme={pathname === to ? 'blue' : 'black'} as={Link} to={to} variant="link" p={2} isDisabled={disabled}>
         {label}
       </Button>
     </Box>

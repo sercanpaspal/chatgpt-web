@@ -20,6 +20,7 @@
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.6",
     "react-redux": "^8.0.5",
+    "react-router-dom": "^6.9.0",
     "react-syntax-highlighter": "^15.5.0",
     "redux-saga": "^1.2.3",
     "reselect": "^4.1.7"

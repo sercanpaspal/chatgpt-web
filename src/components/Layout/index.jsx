@@ -1,21 +1,17 @@
 import React from 'react';
+import { Outlet } from 'react-router-dom';
 import { Box } from '@chakra-ui/react';
-import PropTypes from 'prop-types';
 import Navbar from '../Navbar/index';
 
-function Layout({ children }) {
+function Layout() {
   return (
     <div>
       <Navbar />
       <Box p={12}>
-        {children}
+        <Outlet />
       </Box>
     </div>
   );
 }
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
-};
 
 export default Layout;

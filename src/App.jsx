@@ -1,8 +1,8 @@
-import Screens from './screens';
+import Pages from './pages';
 
 function App() {
   return (
-    <Screens />
+    <Pages />
   );
 }
 
