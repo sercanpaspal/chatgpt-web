@@ -3,9 +3,8 @@ import {
   Input, Button, InputGroup, InputRightElement, Stack,
 } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setActiveScreen, setApiKey } from '../../store/slices/app';
+import { setApiKey } from '../../store/slices/app';
 import selectors from '../../store/selectors';
-import { SCREENS } from '../../constants';
 
 function SettingsForm() {
   const [show, setShow] = useState(false);
@@ -15,7 +14,6 @@ function SettingsForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(setApiKey(e.target.apiKey.value.trim()));
-    dispatch(setActiveScreen(SCREENS.HOME));
   };
 
   return (
