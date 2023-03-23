@@ -1,12 +1,12 @@
 import React from 'react';
 import { Text } from '@chakra-ui/react';
-import PromptCard from '../../components/PromptCard';
+import PromptList from '../../components/PromptList';
 
 function Prompts() {
   return (
     <div>
       <Text fontSize="5xl">Prompts</Text>
-      <PromptCard />
+      <PromptList />
     </div>
   );
 }
