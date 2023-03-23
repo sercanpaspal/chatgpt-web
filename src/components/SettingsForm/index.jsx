@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {
-  Input, Button, InputGroup, InputRightElement, Stack,
+  Input, Button, InputGroup, InputRightElement, Flex, Spacer,
 } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setApiKey } from '../../store/slices/app';
@@ -33,9 +33,10 @@ function SettingsForm() {
           </Button>
         </InputRightElement>
       </InputGroup>
-      <Stack>
-        <Button colorScheme="teal" type="submit">save</Button>
-      </Stack>
+      <Flex>
+        <Spacer />
+        <Button colorScheme="teal" w={128} type="submit">SAVE</Button>
+      </Flex>
     </form>
   );
 }
