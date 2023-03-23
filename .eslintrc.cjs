@@ -17,9 +17,9 @@ module.exports = {
     'react',
   ],
   rules: {
-    "react/react-in-jsx-scope": "off",
-    "max-len": ["error", { "code": 200 }],
-    "react/jsx-props-no-spreading": "off",
-    "react/no-unstable-nested-components": "off",
+    'react/react-in-jsx-scope': 'off',
+    'max-len': ['error', { code: 200 }],
+    'react/jsx-props-no-spreading': 'off',
+    'react/no-unstable-nested-components': 'off',
   },
 };
