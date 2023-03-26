@@ -19,7 +19,7 @@ function PromptListItem({ promptItem }) {
 
   const handleSelectPrompt = () => {
     dispatch(selectPrompt(promptItem));
-    navigate('/');
+    navigate('/home');
   };
 
   return (

@@ -15,8 +15,7 @@ export const fetchChat = createAsyncThunk(
     const { app: { apiKey }, chat: { messages: _messages, selectedPrompt: { prompt } } } = getState();
 
     const messages = [
-      { role: 'system', content: prompt },
-      ..._messages,
+      ...prompt ? [{ role: 'system', content: prompt }, ..._messages] : _messages,
     ];
 
     try {
