@@ -10,11 +10,11 @@ const initialState = {
 
 export const fetchChat = createAsyncThunk(
   'chat/fetchChat',
-  async (prompt, { rejectWithValue, getState }) => {
-    const { app: { apiKey }, chat: { messages: _messages } } = getState();
+  async (_, { rejectWithValue, getState }) => {
+    const { app: { apiKey }, chat: { messages: _messages, selectedPrompt: { prompt } } } = getState();
 
     const messages = [
-      // { role: 'system', content: 'given role' },
+      { role: 'system', content: prompt },
       ..._messages,
     ];
 
@@ -32,6 +32,7 @@ const chatSlice = createSlice({
   reducers: {
     addMessage: (state, { payload }) => ({ ...state, errorMessage: '', messages: [...(state.isConversationEnabled ? state.messages : []), { role: 'user', content: payload }] }),
     setIsConversationEnabled: (state, { payload }) => ({ ...state, isConversationEnabled: payload }),
+    selectPrompt: (state, { payload }) => ({ ...state, selectedPrompt: payload }),
   },
   extraReducers: {
     [fetchChat.pending]: (state) => ({ ...state, isLoading: true }),
@@ -40,6 +41,6 @@ const chatSlice = createSlice({
   },
 });
 
-export const { addMessage, setIsConversationEnabled } = chatSlice.actions;
+export const { addMessage, setIsConversationEnabled, selectPrompt } = chatSlice.actions;
 
 export default chatSlice.reducer;

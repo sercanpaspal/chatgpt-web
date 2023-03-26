@@ -41,7 +41,7 @@ function ChatForm() {
             Continue conversation
           </FormLabel>
         </FormControl>
-        <Button colorScheme="teal" type="submit" isLoading={chatIsLoading}>send</Button>
+        <Button colorScheme="teal" type="submit" isLoading={chatIsLoading}>Send</Button>
       </Stack>
     </form>
   );

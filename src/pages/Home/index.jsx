@@ -9,10 +9,12 @@ import selectors from '../../store/selectors';
 
 function Home() {
   const chatErrorMessage = useSelector(selectors.getChatErrorMessage);
+  const selectedPrompt = useSelector(selectors.getSelectedPrompt);
+  const { act = 'Your AI Assistant' } = selectedPrompt;
 
   return (
     <div>
-      <Text fontSize="5xl">Home</Text>
+      <Text fontSize="5xl">{act}</Text>
       <ChatForm />
       {chatErrorMessage ? (
         <Alert status="error">

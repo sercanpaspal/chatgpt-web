@@ -10,6 +10,7 @@ const getChatMessages = createSelector(getChat, (chat) => chat.messages);
 const getChatErrorMessage = createSelector(getChat, (chat) => chat.errorMessage);
 const getChatIsLoading = createSelector(getChat, (chat) => chat.isLoading);
 const getIsConversationEnabled = createSelector(getChat, (chat) => chat.isConversationEnabled);
+const getSelectedPrompt = createSelector(getChat, (chat) => chat.selectedPrompt);
 
 export default {
   getApiKey,
@@ -18,4 +19,5 @@ export default {
   getChatErrorMessage,
   getChatIsLoading,
   getIsConversationEnabled,
+  getSelectedPrompt,
 };
