@@ -6,6 +6,7 @@ const initialState = {
   isLoading: false,
   errorMessage: '',
   isConversationEnabled: false,
+  selectedPrompt: {},
 };
 
 export const fetchChat = createAsyncThunk(
