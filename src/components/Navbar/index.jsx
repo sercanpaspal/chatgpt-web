@@ -17,7 +17,11 @@ function NavLinks() {
   const NAV_SCREENS = [
     {
       label: 'Home',
-      to: '/home',
+      to: '/',
+    },
+    {
+      label: 'Chat',
+      to: '/chat',
     },
     {
       label: 'Prompts',

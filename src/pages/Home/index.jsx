@@ -1,36 +1,12 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
 import {
-  Text, Alert, AlertTitle, AlertDescription, AlertIcon, Button,
+  Container,
 } from '@chakra-ui/react';
-import { useNavigate } from 'react-router-dom';
-import ChatForm from '../../components/ChatForm';
-import Messages from '../../components/Messages/index';
-import selectors from '../../store/selectors';
-import { getPromptHashForURL } from '../../utils';
+import HeroSection from '../../components/HeroSection';
 
-function Home() {
-  const navigate = useNavigate();
-  const chatErrorMessage = useSelector(selectors.getChatErrorMessage);
-  const selectedPrompt = useSelector(selectors.getSelectedPrompt);
-  const { act } = selectedPrompt;
-
+export default function Home() {
   return (
-    <div>
-      <Text fontSize="5xl">{act || 'Your AI Assistant' }</Text>
-      <Button onClick={() => navigate(`/prompts#${getPromptHashForURL(act)}`)}>Go to Prompts</Button>
-      <ChatForm />
-      {chatErrorMessage ? (
-        <Alert status="error">
-          <AlertIcon />
-          <AlertTitle>Error!</AlertTitle>
-          <AlertDescription>{chatErrorMessage}</AlertDescription>
-        </Alert>
-      ) : (
-        <Messages />
-      )}
-    </div>
+    <Container maxW="6xl">
+      <HeroSection />
+    </Container>
   );
 }
-
-export default Home;

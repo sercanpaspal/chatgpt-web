@@ -1,10 +1,10 @@
 import React from 'react';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Layout from '../components/Layout';
-import Home from './Home';
+import Chat from './Chat';
 import Settings from './Settings';
 import Prompts from './Prompts';
-import Landing from './Landing';
+import Home from './Home';
 
 const router = createBrowserRouter([
   {
@@ -13,11 +13,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Landing />,
+        element: <Home />,
       },
       {
-        path: '/home',
-        element: <Home />,
+        path: '/chat',
+        element: <Chat />,
       },
       {
         path: '/prompts',

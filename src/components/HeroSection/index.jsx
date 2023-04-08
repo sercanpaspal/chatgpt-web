@@ -17,7 +17,7 @@ export default function Header() {
         as={Box}
         textAlign="center"
         spacing={{ base: 8, md: 14 }}
-        py={{ base: 20, md: 36 }}
+        py={{ base: 12, md: 20 }}
       >
         <Heading
           fontWeight={600}
@@ -32,9 +32,7 @@ export default function Header() {
           </Text>
         </Heading>
         <Text color="gray.500">
-          With the awesome ChatGPT prompts, generate your AI assistant. Make your life easy. So, Easy come easy go, little bye little go.
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
-          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+          Introducing our cutting-edge web application that utilizes the power of ChatGPT prompts to quickly and effortlessly create your very own AI assistant. Say goodbye to the stress and hassle of navigating complex tasks on your own - our intuitive platform makes it easy to get the help you need with just a few clicks. So whether you're looking to boost productivity, simplify your daily routine, or just have some fun, our ChatGPT-powered assistant is the perfect solution. Don't miss your chance to experience the future of AI - try our app today!
         </Text>
         <Stack
           direction="column"
@@ -51,7 +49,7 @@ export default function Header() {
             _hover={{
               bg: 'green.500',
             }}
-            onClick={() => navigate('/home')}
+            onClick={() => navigate('/chat')}
           >
             Get Started
           </Button>
