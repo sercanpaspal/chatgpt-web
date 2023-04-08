@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  Card, CardHeader, CardBody, CardFooter, Heading, Text, Button,
+  Card, CardHeader, CardBody, CardFooter, Heading, Text, Button, Tooltip,
 } from '@chakra-ui/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -19,7 +19,7 @@ function PromptListItem({ promptItem }) {
 
   const handleSelectPrompt = () => {
     dispatch(selectPrompt(promptItem));
-    navigate('/home');
+    navigate('/chat');
   };
 
   return (
@@ -28,10 +28,12 @@ function PromptListItem({ promptItem }) {
         <Heading size="md">{promptItem.act}</Heading>
       </CardHeader>
       <CardBody>
-        <Text>{promptItem.prompt}</Text>
+        <Tooltip hasArrow label={promptItem.prompt} aria-label={promptItem.act} closeOnClick={false}>
+          <Text style={{ textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }} fontSize="sm">{promptItem.prompt}</Text>
+        </Tooltip>
       </CardBody>
       <CardFooter>
-        <Button colorScheme="blue" onClick={handleSelectPrompt} disabled={isSelected}>{isSelected ? 'Using' : 'Use'}</Button>
+        <Button colorScheme={isSelected ? 'green' : 'blue'} onClick={handleSelectPrompt} disabled={isSelected}>{isSelected ? 'Using' : 'Use'}</Button>
       </CardFooter>
     </Card>
   );
