@@ -83,7 +83,7 @@ function Navbar() {
             />
           </Button>
 
-          <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
+          <Flex display={{ base: 'none', md: 'flex' }} ml={8}>
             <Stack direction="row" spacing={4} alignItems="center">
               <NavLinks />
             </Stack>

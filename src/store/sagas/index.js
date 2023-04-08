@@ -1,10 +1,10 @@
 import { takeEvery, put } from 'redux-saga/effects';
 import { setApiKey } from '../slices/app';
-import { addMessage, fetchChat } from '../slices/chat';
+import { addMessage, fetchChat, selectPrompt } from '../slices/chat';
 import toast from '../../lib/toast';
 
 function* watchSetApiKey({ payload }) {
-  yield localStorage.setItem('apiKey', payload);
+  localStorage.setItem('apiKey', payload);
   yield toast({
     title: 'OK',
     description: 'Your api key successfully saved.',
@@ -17,9 +17,14 @@ function* watchChatMessage() {
   yield put(fetchChat());
 }
 
+function watchSelectPrompt({ payload }) {
+  localStorage.setItem('selectedPrompt', JSON.stringify(payload));
+}
+
 function* saga() {
   yield takeEvery(setApiKey.toString(), watchSetApiKey);
   yield takeEvery(addMessage.toString(), watchChatMessage);
+  yield takeEvery(selectPrompt.toString(), watchSelectPrompt);
 }
 
 export default saga;

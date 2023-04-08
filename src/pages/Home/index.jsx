@@ -1,6 +1,5 @@
 import {
-  Box, Button,
-  Container, Heading, Stack, Text,
+  Box, Button, Container, Heading, Stack, Text, Image,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
@@ -11,13 +10,16 @@ export default function Home() {
         <Stack
           as={Box}
           textAlign="center"
+          alignItems="center"
           spacing={{ base: 8, md: 14 }}
-          py={{ base: 12, md: 20 }}
         >
+          <Box boxSize="80px">
+            <Image src="/logo.png" alt="GPTalk Logo" />
+          </Box>
           <Heading
             fontWeight={600}
             fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
-            lineHeight="110%"
+            lineHeight="90%"
           >
             GPTalk
             {' '}

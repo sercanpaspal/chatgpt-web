@@ -1,12 +1,13 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { fetchChatApi } from '../../lib/api';
+import { safeJSONParse } from '../../utils';
 
 const initialState = {
   messages: [],
   isLoading: false,
   errorMessage: '',
   isConversationEnabled: false,
-  selectedPrompt: {},
+  selectedPrompt: safeJSONParse(localStorage.getItem('selectedPrompt')),
 };
 
 export const fetchChat = createAsyncThunk(
@@ -32,7 +33,7 @@ const chatSlice = createSlice({
   reducers: {
     addMessage: (state, { payload }) => ({ ...state, errorMessage: '', messages: [...(state.isConversationEnabled ? state.messages : []), { role: 'user', content: payload }] }),
     setIsConversationEnabled: (state, { payload }) => ({ ...state, isConversationEnabled: payload }),
-    selectPrompt: (state, { payload }) => ({ ...state, selectedPrompt: payload }),
+    selectPrompt: (state, { payload = {} }) => ({ ...state, selectedPrompt: payload }),
   },
   extraReducers: {
     [fetchChat.pending]: (state) => ({ ...state, isLoading: true }),
