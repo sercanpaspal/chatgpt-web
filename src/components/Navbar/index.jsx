@@ -34,7 +34,7 @@ function NavLinks() {
   ];
 
   return NAV_SCREENS.map(({ label, to, disabled = false }) => (
-    <Box>
+    <Box key={to}>
       <Button colorScheme={pathname === to ? 'blue' : 'black'} as={Link} to={to} variant="link" p={2} isDisabled={disabled}>
         {label}
       </Button>
