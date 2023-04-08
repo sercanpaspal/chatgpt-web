@@ -13,7 +13,7 @@ function Chat() {
 
   return (
     <div>
-      <Text fontSize="5xl">Your AI Assistant</Text>
+      <Text fontSize="3xl">Your AI Assistant</Text>
       <SelectPrompt />
       <ChatForm />
       {chatErrorMessage ? (

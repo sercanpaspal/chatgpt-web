@@ -5,7 +5,7 @@ import PromptListItem from '../PromptListItem';
 
 function PromptList() {
   return (
-    <SimpleGrid spacing={4} templateColumns="repeat(auto-fill, minmax(500px, 1fr))">
+    <SimpleGrid spacing={4} columns={{ base: 1, sm: 2, md: 3 }}>
       {prompts.map((prompt) => (
         <PromptListItem key={prompt.act} promptItem={prompt} />
       ))}

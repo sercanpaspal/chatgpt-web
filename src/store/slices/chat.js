@@ -32,6 +32,7 @@ const chatSlice = createSlice({
   initialState,
   reducers: {
     addMessage: (state, { payload }) => ({ ...state, errorMessage: '', messages: [...(state.isConversationEnabled ? state.messages : []), { role: 'user', content: payload }] }),
+    clearMessages: (state) => ({ ...state, messages: [] }),
     setIsConversationEnabled: (state, { payload }) => ({ ...state, isConversationEnabled: payload }),
     selectPrompt: (state, { payload = {} }) => ({ ...state, selectedPrompt: payload }),
   },
@@ -42,6 +43,8 @@ const chatSlice = createSlice({
   },
 });
 
-export const { addMessage, setIsConversationEnabled, selectPrompt } = chatSlice.actions;
+export const {
+  addMessage, clearMessages, setIsConversationEnabled, selectPrompt,
+} = chatSlice.actions;
 
 export default chatSlice.reducer;

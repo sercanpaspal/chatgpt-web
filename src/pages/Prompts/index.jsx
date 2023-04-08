@@ -5,7 +5,7 @@ import PromptList from '../../components/PromptList';
 function Prompts() {
   return (
     <div>
-      <Text fontSize="5xl">Prompts</Text>
+      <Text fontSize="3xl">Prompts</Text>
       <PromptList />
     </div>
   );

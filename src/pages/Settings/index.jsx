@@ -5,7 +5,7 @@ import SettingsForm from '../../components/SettingsForm';
 function Settings() {
   return (
     <div>
-      <Text fontSize="5xl">Settings</Text>
+      <Text fontSize="3xl">Settings</Text>
       <SettingsForm />
     </div>
   );

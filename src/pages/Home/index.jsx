@@ -1,5 +1,5 @@
 import {
-  Box, Button, Container, Heading, Stack, Text, Image,
+  Box, Button, Container, Heading, Stack, Text,
 } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
@@ -10,16 +10,13 @@ export default function Home() {
         <Stack
           as={Box}
           textAlign="center"
-          alignItems="center"
           spacing={{ base: 8, md: 14 }}
+          py={{ base: 12, md: 20 }}
         >
-          <Box boxSize="80px">
-            <Image src="/logo.png" alt="GPTalk Logo" />
-          </Box>
           <Heading
             fontWeight={600}
             fontSize={{ base: '2xl', sm: '4xl', md: '6xl' }}
-            lineHeight="90%"
+            lineHeight="110%"
           >
             GPTalk
             {' '}
@@ -29,10 +26,10 @@ export default function Home() {
             </Text>
           </Heading>
           <Text color="gray.500">
-            Introducing our cutting-edge web application that utilizes the power of ChatGPT prompts to quickly and effortlessly create your very own AI assistant.
+            {`Introducing our cutting-edge web application that utilizes the power of ChatGPT prompts to quickly and effortlessly create your very own AI assistant.
             Say goodbye to the stress and hassle of navigating complex tasks on your own - our intuitive platform makes it easy to get the help you need with just a few clicks.
             So whether you're looking to boost productivity, simplify your daily routine, or just have some fun, our ChatGPT-powered assistant is the perfect solution.
-            Don't miss your chance to experience the future of AI - try our app today!
+            Don't miss your chance to experience the future of AI - try our app today!`}
           </Text>
           <Stack
             direction="column"
