@@ -19,13 +19,13 @@ function SelectPrompt() {
     <Stack py={4}>
       {act ? (
         <Stack direction="row" alignItems="center">
-          <Text fontSize="xl">
+          <Text fontSize="md">
             Acting as
             {' '}
           </Text>
           <Popover>
             <PopoverTrigger>
-              <Button size="md" variant="ghost" colorScheme="teal">{act}</Button>
+              <Button size="sm" variant="outline" colorScheme="red">{act}</Button>
             </PopoverTrigger>
             <Portal>
               <PopoverContent>
@@ -33,7 +33,7 @@ function SelectPrompt() {
                 <PopoverHeader>{act}</PopoverHeader>
                 <PopoverCloseButton />
                 <PopoverBody>
-                  <Text fontSize="sm">
+                  <Text fontSize="xs">
                     {prompt}
                   </Text>
                 </PopoverBody>
@@ -48,7 +48,7 @@ function SelectPrompt() {
           </Popover>
         </Stack>
       ) : (
-        <Button size="md" as={Link} to="/prompts">Select Prompt</Button>
+        <Button size="sm" as={Link} to="/prompts">Select Prompt</Button>
       )}
     </Stack>
   );
